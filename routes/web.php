@@ -32,3 +32,13 @@ Auth::routes();
 Route::get('/project', 'ProjectController@index')->name('getproject');
 Route::post('/addproject', 'ProjectController@store')->name('saveproject');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//login 
+
+Route::get('/login-new', function () {
+    return view('admin.authentication.login');
+});
+Route::get('/register-new', function () {
+    return view('admin.authentication.register');
+});
