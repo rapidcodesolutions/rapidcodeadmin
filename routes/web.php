@@ -13,32 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    //category route
+    Route::get('/category', 'CategoryController@index')->name('getcategory');
+    Route::post('/addcategory', 'CategoryController@store')->name('savecategory');
+    //service route
+    Route::get('/service', 'ServiceController@index')->name('getservice');
+    Route::post('/addservice', 'ServiceController@store')->name('saveservice');
+    //Route::post('/deletecategory/{id}', 'CategoryController@destroy')->name('deletecategory');
+    
+    //team route
+    Route::get('/team', 'TeamController@index')->name('getteam');
+    Route::post('/addteam', 'TeamController@store')->name('saveteam');
+    
+    //project Route
+    Route::get('/project', 'ProjectController@index')->name('getproject');
+    Route::post('/addproject', 'ProjectController@store')->name('saveproject');
+    Route::get('/home', 'HomeController@index')->name('home');
+    // your routes
 });
-//category route
-Route::get('/category', 'CategoryController@index')->name('getcategory');
-Route::post('/addcategory', 'CategoryController@store')->name('savecategory');
-//service route
-Route::get('/service', 'ServiceController@index')->name('getservice');
-Route::post('/addservice', 'ServiceController@store')->name('saveservice');
-//Route::post('/deletecategory/{id}', 'CategoryController@destroy')->name('deletecategory');
-
-//team route
-Route::get('/team', 'TeamController@index')->name('getteam');
-Route::post('/addteam', 'TeamController@store')->name('saveteam');
 Auth::routes();
-//project Route
-Route::get('/project', 'ProjectController@index')->name('getproject');
-Route::post('/addproject', 'ProjectController@store')->name('saveproject');
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-//login 
-
-Route::get('/login-new', function () {
-    return view('admin.authentication.login');
-});
-Route::get('/register-new', function () {
-    return view('admin.authentication.register');
-});

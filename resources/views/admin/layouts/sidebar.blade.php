@@ -55,16 +55,20 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>About Us</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{route('getteam')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Team Member</p>
                 </a>
+              </li>
+              <li class="nav-item">
+              <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                       <i class="far fa-circle nav-icon"></i>  {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
               </li>
             </ul>
           </li>
