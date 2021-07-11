@@ -17,6 +17,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/', function () {
         return view('admin.index');
     })->name('dashboard');
+    //user list
+    Route::get('/users', 'UserController@index')->name('getusers');
     //category route
     Route::get('/category', 'CategoryController@index')->name('getcategory');
     Route::post('/addcategory', 'CategoryController@store')->name('savecategory');
@@ -35,4 +37,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     // your routes
 });
-Auth::routes();
+Auth::routes([
+    'register' => false,
+]);

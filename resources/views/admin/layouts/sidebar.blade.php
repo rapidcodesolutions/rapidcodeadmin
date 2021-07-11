@@ -37,6 +37,12 @@
           <li class="nav-item menu-open">            
             <ul class="nav nav-treeview">
             <li class="nav-item">
+                <a href="{{route('getusers')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User List</p>
+                </a>
+              </li>
+            <li class="nav-item">
                 <a href="{{route('getcategory')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Category</p>

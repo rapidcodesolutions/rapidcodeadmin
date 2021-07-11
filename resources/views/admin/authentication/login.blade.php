@@ -78,9 +78,7 @@
       <!-- /.social-auth-links -->
 
      
-      <p class="mb-0">
-        <a href="{{route('register')}}" class="text-center">New Register</a>
-      </p>
+     
     </div>
     <!-- /.login-card-body -->
   </div>
