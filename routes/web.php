@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/', function () {
         return view('admin.index');
-    });
+    })->name('dashboard');
     //category route
     Route::get('/category', 'CategoryController@index')->name('getcategory');
     Route::post('/addcategory', 'CategoryController@store')->name('savecategory');
