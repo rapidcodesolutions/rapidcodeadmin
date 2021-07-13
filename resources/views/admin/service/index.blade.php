@@ -14,7 +14,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <form method="post" action="{{ route('saveservice') }}">
+            <form method="post" action="{{ route('saveservice') }}" enctype="multipart/form-data">
           @csrf
                 <div class="card-body">
                   <div class="form-group row">
@@ -29,7 +29,13 @@
                     <textarea name="description" id="" cols="47" rows="4" required></textarea>
                      
                     </div>
-                  </div>                
+                  </div>
+                  <div class="form-group row">
+                    <label for="image" class="col-sm-2 col-form-label">Image</label>
+                    <div class="col-sm-10">
+                      <input type="file" class="form-control" id="image" name="image"  required>
+                    </div>
+                  </div>              
                 </div>
                 <!-- /.card-body -->
                 <div>
@@ -55,6 +61,7 @@
                   <tr>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Image</th>
                     <th>Created Date</th>
                     <th>Action</th>
                     
@@ -65,6 +72,7 @@
                   <tr>
                     <td>{{$data->name}}</td>
                     <td>{{$data->description}}</td>
+                    <td><img width="150" height="120" src="{{url('/public/images/',$data->image)}}" alt=""></td>
                     <td>{{$data->created_at}}
                     </td>
                     <td>

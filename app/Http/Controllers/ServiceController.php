@@ -12,9 +12,15 @@ class ServiceController extends Controller
         return view('admin.service.index',compact('service'));
      }
     public function store(Request $request) {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
         $service=new Service();
         $service->name=$request->service;
         $service->description=$request->description;
+        $service->image=$imageName;
         $service->save();
         return redirect('/service')->with('success', 'Service saved!');
       

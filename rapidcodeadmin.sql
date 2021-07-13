@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2021 at 06:58 AM
+-- Generation Time: Jul 12, 2021 at 07:21 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -94,6 +94,14 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('admin@rapid.com', '$2y$10$pYMJ92M3SniZs4kUjBzpP.7WWv9i6sjEN0BTsz3ocDiTiyvCy0abO', '2021-07-08 01:31:41'),
+('ratulshourov02@gmail.com', '$2y$10$TPo3IzIWfpm0cuUwvJd6LeSTfDf8LHwqgUiIGHvjf8KlW/G/4kR9C', '2021-07-08 01:32:33');
+
 -- --------------------------------------------------------
 
 --
@@ -115,8 +123,8 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `name`, `category_id`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'boi', NULL, 'asdsa', '1625663814.jpg', '2021-07-07 07:16:54', '2021-07-07 07:16:54'),
-(2, 'sadsa', 15, 'sadsad', '1625664407.jpg', '2021-07-07 07:26:47', '2021-07-07 07:26:47');
+(1, 'Android Projetc', 1, 'Android App', '1625663814.jpg', '2021-07-07 07:16:54', '2021-07-07 07:16:54'),
+(2, 'Web Projects', 15, 'web projects', '1625664407.jpg', '2021-07-07 07:26:47', '2021-07-07 07:26:47');
 
 -- --------------------------------------------------------
 
@@ -161,7 +169,7 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `name`, `designation`, `image`, `link`, `created_at`, `updated_at`) VALUES
-(1, 'ratul', 'developer', '1625661104.jpg', 'asdasdsa', '2021-07-07 06:31:44', '2021-07-07 06:31:44');
+(1, 'ratul', 'developer', '1625661104.jpg', 'https://www.facebook.com/ratulshourov/', '2021-07-07 06:31:44', '2021-07-07 06:31:44');
 
 -- --------------------------------------------------------
 
@@ -179,6 +187,14 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Ratul', 'ratulshourov02@gmail.com', NULL, '$2y$10$sJ7xpBdUiH25uKfhRfA7BulwtTpUajA2fa5Tu8MmShLuhN5q3j7Ju', 'uKarqR7wBphnyP3r1bS01riUnN6sbRCCwz7SLuujF1Zy6gKfEpNiPQGRnJOJ', '2021-07-08 01:16:25', '2021-07-08 01:16:25'),
+(2, 'test', 'test@gmail.com', NULL, '$2y$10$trPQp0tdUXbQ238Ph6RQkeS3boGPA7GyTNPje823/91NGEE/7PWwW', NULL, '2021-07-08 03:24:32', '2021-07-08 03:24:32');
 
 --
 -- Indexes for dumped tables
@@ -277,7 +293,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
