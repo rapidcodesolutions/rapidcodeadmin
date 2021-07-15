@@ -36,6 +36,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/addproject', 'ProjectController@store')->name('saveproject');
     Route::get('/home', 'HomeController@index')->name('home');
     // your routes
+     //career Route
+     Route::get('/career', 'CareerController@index')->name('getcareer');
+     Route::post('/addcareer', 'CareerController@store')->name('savecareer');
 });
 Auth::routes([
     'register' => false,

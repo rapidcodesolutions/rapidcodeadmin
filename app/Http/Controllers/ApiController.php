@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Career;
+use App\Team;
+use App\Contact;
 use App\Project;
 use App\Service;
-use App\Team;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -14,6 +16,7 @@ class ApiController extends Controller
             $team = Team::all();
             $servicedata=Service::all();
             $projectdata=Project::all();
+            //$careerdata=Career::all();
             $list = array();
             $dummy = array();
             $legalinfos=array();
@@ -74,6 +77,17 @@ class ApiController extends Controller
                 }
                // $projectinfos['portfolio']=$project;
                // array_push($projecttemp,$projectinfos);
+
+            //    $carrer=array();
+            //     $careerlist=array();
+            //     $carrertemp=array();
+            //     $carrerinfos=array();
+            //     foreach ($carrertdata as $dt) {
+            //         $projectlist['designation'] = $dt->designation;
+            //         $projectlist['description'] = $dt->description;
+                    
+            //         array_push($carrer, $careerlist);
+            //     }
             } 
 			
 			else {
@@ -87,7 +101,19 @@ class ApiController extends Controller
             "team"=>$dummy,
             "service"=>$service,
             "project"=>$project,
+           // "career"=>$carrer,
         ]);
+    }
+    public function contact(Request $request) {
+        $contact=new Contact();
+        $contact->name=$request->name;
+        $contact->email=$request->email;
+        $contact->subject=$request->subject;
+        $contact->message=$request->message;
+$contact->created_time=date("Y-m-d");
+        $contact->updated_time=date("Y-m-d");
+        $contact->save();
+
     }
     //
 }

@@ -67,6 +67,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('getcareer')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Career</p>
+                </a>
+              </li>
+              <li class="nav-item">
               <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
