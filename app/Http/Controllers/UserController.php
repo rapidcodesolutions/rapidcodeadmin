@@ -32,4 +32,16 @@ class UserController extends Controller
       
         // return view('admin.category.add');
     }
+
+    public function store(Request $request) {
+        $user=User::all();
+       
+        $user=new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=password_hash($request->password, PASSWORD_DEFAULT);;
+        $user->save();
+        return redirect('/users');
+      
+    }
 }

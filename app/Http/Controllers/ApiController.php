@@ -115,5 +115,19 @@ $contact->created_time=date("Y-m-d");
         $contact->save();
 
     }
+
+    public function servicedetails(Request $request){
+        $servicedetails=Service::where('name',$request->name)->get();
+        $dummy=array();
+        foreach($servicedetails as $dt) {
+            $list['name'] = $dt->name;
+            $list['description'] = $dt->description;
+            array_push($dummy, $list);
+        }
+        return response()->json([
+             "service"=>$dummy,
+         ]);
+
+    }
     //
 }

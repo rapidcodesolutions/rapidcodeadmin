@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function() {
      //career Route
      Route::get('/career', 'CareerController@index')->name('getcareer');
      Route::post('/addcareer', 'CareerController@store')->name('savecareer');
+     Route::post('/adduser', 'UserController@store')->name('saveuser');
 });
 Auth::routes([
     'register' => false,
